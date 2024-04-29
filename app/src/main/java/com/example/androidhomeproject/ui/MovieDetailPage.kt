@@ -24,6 +24,9 @@ import com.example.androidhomeproject.ui.theme.AndroidHomeProjectTheme
 @Composable
 fun MovieDetail(navHostController: NavHostController) {
 
+    // Usually, we pass the guid to the detail page, and make another API call to get the full
+    // metadata of the movie. Since we don't know what the API looks like, I'm passing the movie
+    // data from the list from the List page.
     val movie = navHostController.previousBackStackEntry?.savedStateHandle?.get<Movie>("data")
 
     AndroidHomeProjectTheme {
@@ -44,7 +47,7 @@ fun MovieDetail(navHostController: NavHostController) {
                 // But I have to search and reference the ExoPlayer documentation and code samples
                 // for the implementation details.
                 Image(
-                    // Use a icon drawable as the image
+                    // Hard code a icon drawable as the image
                     painter = painterResource(id = R.drawable.ic_launcher_foreground),
                     contentDescription = movie?.title,
                     alignment = Alignment.TopCenter

@@ -21,6 +21,9 @@ class MovieListViewModel : ViewModel() {
 
     private fun loadMovieList() {
         viewModelScope.launch {
+            // I would want to support pagination if this is a requirement.
+            // I would hope the api call take a page number, and we can make continuous calls as
+            // user scroll down and down. We append more data into "movieList".
             val result = repository.getMovieList()
             // Needs to have some error handling
             if (result.items.isNotEmpty()) {

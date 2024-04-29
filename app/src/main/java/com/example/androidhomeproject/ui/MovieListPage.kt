@@ -36,6 +36,10 @@ fun MovieList(navHostController: NavHostController) {
             modifier = Modifier.fillMaxSize(),
             color = MaterialTheme.colorScheme.background
         ) {
+            // I would add a "loading" status, "success" status and etc, and show a spinner if it's loading, and so on.
+            // Very important to have error handling. Since we are mocking the API response, we don't
+            // know how it will look like. But we can have the data response class include the api error,
+            // and then we would show an error page and further logics.
             LazyColumn(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
